@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:background="@color/tea"
+    tools:context=".login">
+
+
+    <Button
+        android:id="@+id/bt_login"
+        android:layout_width="271dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="416dp"
+
+        android:contextClickable="false"
+        android:gravity="center"
+        android:isScrollContainer="false"
+        android:onClick="login"
+        android:text="Iniciar Sesion "
+        android:textAlignment="center"
+        android:textAllCaps="false"
+
+        android:translationY="-67dp"
+        app:cornerRadius="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <!--Botón de recuperación de credenciales -->
+
+
+    <ImageView
+        android:id="@+id/fotousuario"
+        android:layout_width="216dp"
+        android:layout_height="202dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+         />
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+
+        android:ems="10"
+
+        android:hint="Correo Electronico"
+        android:inputType="textEmailAddress"
+        android:padding="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/fotousuario"
+        app:layout_constraintVertical_bias="0.293" />
+
+    <com.google.android.material.textfield.TextInputLayout
+
+        android:id="@+id/textInputLayout"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        app:hintEnabled="false"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.387"
+        app:passwordToggleEnabled="true">
+
+        <!--Campo Contraseña -->
+        <EditText
+            android:id="@+id/contraseña"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+
+            android:ems="10"
+            android:enabled="true"
+            android:hint="Contraseña"
+            android:inputType="textPassword"
+            android:padding="15dp"
+
+            app:passwordToggleEnabled="true"
+            tools:ignore="SpeakableTextPresentCheck" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/btn_recuperarcontrasena"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="351dp"
+        android:layout_height="59dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="416dp"
+        android:fontFamily="sans-serif"
+        android:gravity="center"
+
+        android:text="¿Ha olvidado su contraseña?"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+
+        app:backgroundTint="@color/cardview_shadow_end_color"
+        app:iconTint="@color/cardview_shadow_end_color"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:rippleColor="@color/cardview_shadow_end_color" />
+
+    <Button
+        android:id="@+id/btn_registro"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="351dp"
+        android:layout_height="59dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="484dp"
+        android:fontFamily="sans-serif"
+        android:gravity="center"
+        android:text="Create una Cuenta"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+
+        app:backgroundTint="@color/cardview_shadow_end_color"
+        app:iconTint="@color/cardview_shadow_end_color"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:rippleColor="@color/cardview_shadow_end_color" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
