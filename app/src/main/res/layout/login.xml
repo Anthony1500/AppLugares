@@ -16,7 +16,7 @@
         android:layout_width="271dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="424dp"
+        android:layout_marginTop="436dp"
 
         android:background="#3F51B5"
         android:backgroundTint="#F44336"
@@ -37,13 +37,15 @@
 
     <ImageView
         android:id="@+id/fotousuario"
-        android:layout_width="228dp"
-        android:layout_height="178dp"
+        android:layout_width="363dp"
+        android:layout_height="174dp"
 
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/wp2164087" />
+        app:srcCompat="@drawable/img" />
 
     <EditText
         android:id="@+id/email"
