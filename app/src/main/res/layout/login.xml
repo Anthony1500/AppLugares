@@ -82,7 +82,7 @@
             android:id="@+id/contraseña"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-
+            android:background="@color/w"
             android:ems="10"
             android:enabled="true"
             android:hint="Contraseña"
