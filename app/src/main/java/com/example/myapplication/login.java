@@ -35,8 +35,7 @@ public class login extends AppCompatActivity {
         setContentView(R.layout.login);
         u_correo = findViewById(R.id.email);
         u_con = findViewById(R.id.contraseña);
-        boton_recuperar=(Button)findViewById(R.id.btn_recuperarcontrasena);
-        boton_registro=(Button)findViewById(R.id.btn_registro);
+
 
 
 
