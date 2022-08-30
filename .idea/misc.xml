@@ -3,9 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Asus/AndroidStudioProjects/ProyectJAVIJOHN1/app/src/main/res/layout/activity_inicio.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/Asus/AndroidStudioProjects/ProyectJAVIJOHN1/app/src/main/res/layout/login.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/tcaro/AndroidStudioProjects/ProyectJAVIJOHN/app/src/main/res/layout/login.xml" value="0.25" />
+        <entry key="..\:/Users/Asus/AndroidStudioProjects/ProyectJAVIJOHN1/app/src/main/res/drawable-v24/border_botton.xml" value="0.108" />
+        <entry key="..\:/Users/Asus/AndroidStudioProjects/ProyectJAVIJOHN1/app/src/main/res/drawable-v24/border_botton_top.xml" value="0.108" />
+        <entry key="..\:/Users/Asus/AndroidStudioProjects/ProyectJAVIJOHN1/app/src/main/res/layout/activity_inicio.xml" value="0.33" />
+        <entry key="..\:/Users/Asus/AndroidStudioProjects/ProyectJAVIJOHN1/app/src/main/res/layout/activity_lista.xml" value="0.10190217391304347" />
+        <entry key="..\:/Users/Asus/AndroidStudioProjects/ProyectJAVIJOHN1/app/src/main/res/layout/activity_tiket.xml" value="0.11322463768115942" />
+        <entry key="..\:/Users/Asus/AndroidStudioProjects/ProyectJAVIJOHN1/app/src/main/res/layout/fragment_second.xml" value="0.11322463768115942" />
+        <entry key="..\:/Users/Asus/AndroidStudioProjects/ProyectJAVIJOHN1/app/src/main/res/layout/login.xml" value="0.22" />
       </map>
     </option>
   </component>
