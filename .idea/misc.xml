@@ -7,7 +7,7 @@
         <entry key="..\:/Users/Asus/AndroidStudioProjects/ProyectJAVIJOHN1/app/src/main/res/drawable-v24/border_botton_top.xml" value="0.108" />
         <entry key="..\:/Users/Asus/AndroidStudioProjects/ProyectJAVIJOHN1/app/src/main/res/layout/activity_inicio.xml" value="0.33" />
         <entry key="..\:/Users/Asus/AndroidStudioProjects/ProyectJAVIJOHN1/app/src/main/res/layout/activity_lista.xml" value="0.10190217391304347" />
-        <entry key="..\:/Users/Asus/AndroidStudioProjects/ProyectJAVIJOHN1/app/src/main/res/layout/activity_tiket.xml" value="0.11322463768115942" />
+        <entry key="..\:/Users/Asus/AndroidStudioProjects/ProyectJAVIJOHN1/app/src/main/res/layout/activity_tiket.xml" value="0.5" />
         <entry key="..\:/Users/Asus/AndroidStudioProjects/ProyectJAVIJOHN1/app/src/main/res/layout/fragment_second.xml" value="0.11322463768115942" />
         <entry key="..\:/Users/Asus/AndroidStudioProjects/ProyectJAVIJOHN1/app/src/main/res/layout/login.xml" value="0.22" />
       </map>
@@ -18,5 +18,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.33" />
+      </ProjectState>
+    </option>
   </component>
 </project>
