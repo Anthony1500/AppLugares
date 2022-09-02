@@ -67,14 +67,14 @@
         android:id="@+id/textInputLayout"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        app:hintEnabled="false"
         android:background="@color/white"
+        app:hintEnabled="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.387"
+        app:layout_constraintVertical_bias="0.414"
         app:passwordToggleEnabled="true">
 
         <!--Campo Contraseña -->
@@ -86,9 +86,9 @@
             android:ems="10"
             android:enabled="true"
             android:hint="Contraseña"
-            android:textSize="20dp"
             android:inputType="textPassword"
             android:padding="15dp"
+            android:textSize="20dp"
 
             app:passwordToggleEnabled="true"
             tools:ignore="SpeakableTextPresentCheck" />
