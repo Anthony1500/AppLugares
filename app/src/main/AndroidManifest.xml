@@ -10,7 +10,7 @@
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@drawable/img"
-        android:label="Garage"
+        android:label="Garaje Bolívar"
         android:roundIcon="@drawable/img"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication"
@@ -19,7 +19,7 @@
             android:name=".ejemplo"
             android:exported="false" />
         <activity
-            android:name=".lista"
+            android:name=".Listausu"
             android:exported="false" />
         <activity
             android:name=".tiket"

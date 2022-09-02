@@ -62,7 +62,7 @@ if(u_correo.getText().toString().equals("")){
                 u_con.setText("");
                 Bundle enviar= new Bundle();
                 enviar.putString("datos",  s_correo);
-                Intent intent = new Intent(login.this, Inicio.class);
+                Intent intent = new Intent(login.this, Listausu.class);
                 intent.putExtras(enviar);
                 startActivity(intent);
 

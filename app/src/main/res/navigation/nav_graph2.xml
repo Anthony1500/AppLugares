@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph2"
+    app:startDestination="@id/login">
+
+    <activity
+        android:id="@+id/login"
+        android:name="com.example.myapplication.login"
+        android:label="login"
+        tools:layout="@layout/login" />
+    <fragment
+        android:id="@+id/nav_lista"
+        android:name="com.example.myapplication.lista"
+        android:label="Grage bolivar"
+        tools:layout="@layout/activity_lista" />
+</navigation>

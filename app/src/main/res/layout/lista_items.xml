@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/puesto"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:textStyle="bold"
+        android:translationX="47dp" />
+
+    <TextView
+        android:id="@+id/estado"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:textStyle="bold"
+        android:translationX="220dp" />
+
+    <TextView
+        android:id="@+id/idpuesto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="85dp"
+        android:layout_marginTop="40dp"
+        android:layout_toRightOf="@+id/puesto"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:id="@+id/icono"
+        android:layout_width="35dp"
+        android:layout_height="40dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="33dp"
+        android:src="@mipmap/ic_adelante" />
+
+
+
+
+</RelativeLayout>

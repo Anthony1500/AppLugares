@@ -7,6 +7,7 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -29,7 +30,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Inicio extends AppCompatActivity  {
-
+    String estado,idpuesto,puestotxt;
+    TextView txt_puesto;
     EditText placa,nombre,he,celular,puesto;
     Button boton_tiket,boton_lista,botonregistro;
     ProgressDialog progressDialog;
@@ -38,25 +40,19 @@ public class Inicio extends AppCompatActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicio);
-
+        puestotxt = getIntent().getStringExtra("puesto");
+        idpuesto = getIntent().getStringExtra("idpuesto");
+        estado="Ocupado";
         placa = (EditText) findViewById(R.id.usuario_placa);
         nombre = (EditText) findViewById(R.id.usuario_nombre);
         he = (EditText) findViewById(R.id.usuario_he);
         celular = (EditText) findViewById(R.id.usuario_celular);
-        puesto = (EditText) findViewById(R.id.usuario_puesto);
 
+        txt_puesto =(TextView)  findViewById(R.id.txt_estado);
         botonregistro=(Button)findViewById(R.id.btn_tiket1);
-        boton_lista=(Button)findViewById(R.id.btn_lista);
+        txt_puesto.setText(puestotxt);
 
 
-        boton_lista.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), lista.class);
-                startActivity(intent);
-
-            }
-        });
 
 
         botonregistro.setOnClickListener(new View.OnClickListener() {
@@ -64,9 +60,9 @@ public class Inicio extends AppCompatActivity  {
             public void onClick(View v) {
 
 
-                registrase();
+
                 rcliente();
-                rpu();
+
 
 
 
@@ -79,53 +75,7 @@ public class Inicio extends AppCompatActivity  {
     }
 
 
-    private void registrase() {
-    final String placa1=placa.getText().toString().trim();
-        final String he1=he.getText().toString().trim();
 
-      final ProgressDialog progressDialog= new ProgressDialog(this);
-      progressDialog.setMessage("Cargando");
-      progressDialog.show();
-      StringRequest request=new StringRequest(Request.Method.POST, "https://apps.indoamerica.edu.ec/catastros/apptaxi/e.php", new Response.Listener<String>() {
-          @Override
-          public void onResponse(String response) {
-              if (response.equalsIgnoreCase("datas incetados")) ;
-              Toast.makeText(Inicio.this, "datos insertados", Toast.LENGTH_SHORT).show();
-              Bundle enviar= new Bundle();
-              enviar.putString("datos",  placa.getText().toString());
-              enviar.putString("datos1",  nombre.getText().toString());
-              enviar.putString("datos2",  he.getText().toString());
-              enviar.putString("datos3",  celular.getText().toString());
-              enviar.putString("datos4",  puesto.getText().toString());
-              Intent intent = new Intent(Inicio.this, tiket.class);
-              intent.putExtras(enviar);
-              startActivity(intent);
-              progressDialog.dismiss();
-
-
-              finish();
-          }
-
-      }, new Response.ErrorListener() {
-          @Override
-          public void onErrorResponse(VolleyError error) {
-              Toast.makeText(getApplicationContext(), error.toString(), Toast.LENGTH_SHORT).show();
-              progressDialog.dismiss();
-          }
-      }){
-          @Nullable
-          @Override
-          protected Map<String, String> getParams() throws AuthFailureError {
-              Map<String,String> parametros= new HashMap<>();
-              parametros.put("placa1",placa.getText().toString());
-              parametros.put("hora1",he.getText().toString());
-
-              return parametros;
-          }
-      };
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
-        requestQueue.add(request);
-    }
 
     private void rcliente() {
 
@@ -135,7 +85,7 @@ public class Inicio extends AppCompatActivity  {
         StringRequest request=new StringRequest(Request.Method.POST, "https://apps.indoamerica.edu.ec/catastros/apptaxi/clie.php", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                if (response.equalsIgnoreCase("datas incetados")) ;
+                if (response.equalsIgnoreCase("datos incetados")) ;
                 Toast.makeText(Inicio.this, "datos insertados", Toast.LENGTH_SHORT).show();
                 progressDialog.dismiss();
                 finish();
@@ -152,8 +102,12 @@ public class Inicio extends AppCompatActivity  {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String,String> parametros= new HashMap<>();
+                parametros.put("placa",placa.getText().toString());
                 parametros.put("nombre",nombre.getText().toString());
+                parametros.put("hora_ingreso",he.getText().toString());
                 parametros.put("celular",celular.getText().toString());
+                parametros.put("idpuesto",idpuesto);
+                parametros.put("estado",estado);
 
                 return parametros;
             }
@@ -161,41 +115,7 @@ public class Inicio extends AppCompatActivity  {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(request);
     }
-    private void rpu() {
 
-        final ProgressDialog progressDialog= new ProgressDialog(this);
-        progressDialog.setMessage("Cargando");
-        progressDialog.show();
-        StringRequest request=new StringRequest(Request.Method.POST, "https://apps.indoamerica.edu.ec/catastros/apptaxi/pue.php", new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                if (response.equalsIgnoreCase("datas incetados")) ;
-                Toast.makeText(Inicio.this, "datos insertados", Toast.LENGTH_SHORT).show();
-                progressDialog.dismiss();
-
-                finish();
-
-            }
-
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getApplicationContext(), error.toString(), Toast.LENGTH_SHORT).show();
-                progressDialog.dismiss();
-            }
-        }){
-            @Nullable
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String,String> parametros= new HashMap<>();
-                parametros.put("puesto",puesto.getText().toString());
-
-                return parametros;
-            }
-        };
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
-        requestQueue.add(request);
-    }
 
 }
 
