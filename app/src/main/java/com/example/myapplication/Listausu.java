@@ -35,6 +35,8 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class Listausu extends AppCompatActivity implements AdapterView.OnItemClickListener{
     ListAdapter miadapter;
@@ -44,6 +46,8 @@ public class Listausu extends AppCompatActivity implements AdapterView.OnItemCli
     ListView lista;
     String numeropuesto,estado,idpuesto;
     String url = "https://apps.indoamerica.edu.ec/catastros/apptaxi/selectpuesto.php";
+
+    Timer timer = new Timer();
     private ListausuViewModel mViewModel;
 
     private View bindinga;
@@ -64,76 +68,112 @@ public class Listausu extends AppCompatActivity implements AdapterView.OnItemCli
 
 
 
-
-
-
-
         //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-        JsonArrayRequest jsonArrayrequest = new JsonArrayRequest(url, new Response.Listener<JSONArray>() {
-            @Override
-            public void onResponse(JSONArray response) {
+
+            JsonArrayRequest jsonArrayrequest = new JsonArrayRequest(url, new Response.Listener<JSONArray>() {
+                @Override
+                public void onResponse(JSONArray response) {
 
 
-                JSONObject jsonObject = null;
+                    JSONObject jsonObject = null;
 
-                for (int i = 0; i < response.length(); i++) {
-                    try {
-                        jsonObject = response.getJSONObject(i);
-                       idpuesto = jsonObject.getString("idpuesto");
-                        numeropuesto = jsonObject.getString("numeropuesto");
-                        estado = jsonObject.getString("estado");
-                        if (this!=null) {
-                            milista.add(new listausuarios("Puesto "+numeropuesto,estado,idpuesto));
-                            miadapter = new listausuariosadapter(getApplicationContext(), R.layout.lista_items, milista);
-                            lista.setAdapter(miadapter);
-                            //RECARGA DATOS NUEVAMENTE!
+                    for (int i = 0; i < response.length(); i++) {
+                        try {
+                            jsonObject = response.getJSONObject(i);
+                            idpuesto = jsonObject.getString("idpuesto");
+                            numeropuesto = jsonObject.getString("numeropuesto");
+                            estado = jsonObject.getString("estado");
 
+                            if (this != null) {
+                                milista.add(new listausuarios("Puesto " + numeropuesto, estado, idpuesto));
+                                miadapter = new listausuariosadapter(Listausu.this, R.layout.lista_items, milista);
+                                lista.setAdapter(miadapter);
+
+                            }
+                        } catch (JSONException e) {
+                            Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
                         }
-                    } catch (JSONException e) {
-                        Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    Toast.makeText(getApplicationContext(), "Error de Conexión", Toast.LENGTH_SHORT).show();
+                }
             }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getApplicationContext(), "Error de Conexión", Toast.LENGTH_SHORT).show();
-            }
-        }
-        );
-        //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-        rq = Volley.newRequestQueue(getApplicationContext());
-        rq.add(jsonArrayrequest);
+            );
+            //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            rq = Volley.newRequestQueue(getApplicationContext());
+            rq.add(jsonArrayrequest);
+
+
+                                      }
+
+
+
+
+
+
+
 
         //   textView.setText(s);
 
 
 
-    }
+
 
 
 
 
     public void onItemClick(AdapterView<?> Adapterview, View view, int position, long id) {
+        String estado =milista.get(position).getEstado();
+        if(milista.get(position).getEstado().equals("Disponible")){
+            AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);//Alert dialog cerrar sesión
+            alertDialog.setTitle(milista.get(position).getNumeropuesto());
+            alertDialog.setMessage("Está seguro que desea ocupar este puesto seleccionado?");
+            alertDialog.setIcon( R.drawable.asignar);
+            alertDialog.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog,int which) {
 
 
+                    Intent intent = new Intent(Listausu.this, Inicio.class);
+                    intent.putExtra("puesto", milista.get(position).getNumeropuesto());
+                    intent.putExtra("idpuesto", milista.get(position).getIdpuesto());
 
-        AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);//Alert dialog cerrar sesión
-        alertDialog.setTitle(milista.get(position).getNumeropuesto());
-        alertDialog.setMessage("Está seguro que desea ocupar este puesto seleccionado?");
-        alertDialog.setIcon( R.drawable.asignar);
-        alertDialog.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog,int which) {
+                    startActivity(intent);
+                    finish();
+                    Toast.makeText(Listausu.this,"Pantalla de asignación del puesto." ,Toast.LENGTH_SHORT).show();
+                }
+            });
+            alertDialog.show();
+        }else{
+            AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);//Alert dialog cerrar sesión
+            alertDialog.setTitle(milista.get(position).getNumeropuesto());
+            alertDialog.setMessage("Está seguro que desea finalizar su servicio?");
+            alertDialog.setIcon( R.drawable.terminar);
+            alertDialog.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog,int which) {
 
 
-                Intent intent = new Intent(Listausu.this, Inicio.class);
-                intent.putExtra("puesto", milista.get(position).getNumeropuesto());
-                intent.putExtra("idpuesto", milista.get(position).getIdpuesto());
-                startActivity(intent);
-               Toast.makeText(Listausu.this,"De asignación del puesto." ,Toast.LENGTH_SHORT).show();
-            }
-        });
-        alertDialog.show();
+                    Intent intent = new Intent(Listausu.this, valor.class);
+                    intent.putExtra("puesto", milista.get(position).getNumeropuesto());
+                    intent.putExtra("idpuesto", milista.get(position).getIdpuesto());
+
+                    startActivity(intent);
+                    finish();
+                    Toast.makeText(Listausu.this,"Pantalla de asignación del puesto." ,Toast.LENGTH_SHORT).show();
+                }
+            });
+            alertDialog.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog,int which) {
+                    alertDialog.setCancelable(true);
+
+                      }
+            });
+            alertDialog.show();
+        }
+
+
 
 
 

@@ -29,6 +29,10 @@
             android:exported="true"
             />
         <activity
+            android:name=".valor"
+            android:exported="true"
+            />
+        <activity
             android:name=".MainActivity"
             android:exported="false" />
         <activity

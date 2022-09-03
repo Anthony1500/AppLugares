@@ -13,4 +13,7 @@
     <color name="f2">#9E9F9F</color>
     <color name="b">#9E4ECA</color>
     <color name="l">#843ED3</color>
+    <color name="colorPrimary">#0F9D58</color>
+    <color name="colorPrimaryDark">#16E37F</color>
+    <color name="colorAccent">#03DAC5</color>
 </resources>

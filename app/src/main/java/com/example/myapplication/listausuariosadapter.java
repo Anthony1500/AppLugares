@@ -17,6 +17,7 @@ public class listausuariosadapter extends ArrayAdapter<listausuarios> {
     private List<listausuarios> milista;
     private Context mcontext;
     private int  recurso;
+
     public listausuariosadapter(@NonNull Context context, int resource, List<listausuarios> objects) {
         super(context, resource, objects);
         this.milista=objects;
@@ -28,6 +29,7 @@ public class listausuariosadapter extends ArrayAdapter<listausuarios> {
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         View view = convertView;
+       
         if(view==null)
             view= LayoutInflater.from(mcontext).inflate(R.layout.lista_items,null);
 
@@ -40,6 +42,7 @@ public class listausuariosadapter extends ArrayAdapter<listausuarios> {
         estado.setText(listausu.getEstado());
         TextView idpuesto =view.findViewById(R.id.idpuesto);
         idpuesto.setText(listausu.getIdpuesto());
+        notifyDataSetChanged();
         return view;
     }
 }

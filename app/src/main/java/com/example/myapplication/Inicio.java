@@ -26,6 +26,8 @@ import com.android.volley.toolbox.Volley;
 
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -33,7 +35,7 @@ public class Inicio extends AppCompatActivity  {
     String estado,idpuesto,puestotxt;
     TextView txt_puesto;
     EditText placa,nombre,he,celular,puesto;
-    Button boton_tiket,boton_lista,botonregistro;
+    Button boton_tiket,boton_lista,botonregistro,botonregresar;
     ProgressDialog progressDialog;
     RequestQueue rq, rq2;//Definimos variables a utilizar
     JsonRequest jrq;
@@ -42,35 +44,38 @@ public class Inicio extends AppCompatActivity  {
         setContentView(R.layout.activity_inicio);
         puestotxt = getIntent().getStringExtra("puesto");
         idpuesto = getIntent().getStringExtra("idpuesto");
+
         estado="Ocupado";
         placa = (EditText) findViewById(R.id.usuario_placa);
         nombre = (EditText) findViewById(R.id.usuario_nombre);
         he = (EditText) findViewById(R.id.usuario_he);
         celular = (EditText) findViewById(R.id.usuario_celular);
-
+        botonregresar=(Button)findViewById(R.id.btn_regresar);
         txt_puesto =(TextView)  findViewById(R.id.txt_estado);
         botonregistro=(Button)findViewById(R.id.btn_tiket1);
         txt_puesto.setText(puestotxt);
-
-
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+        String currentDateandTime = sdf.format(new Date());
+        he.setText(currentDateandTime);
 
 
         botonregistro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+             rcliente();
 
-
-
-                rcliente();
-
-
-
-
-
-
-               }
+              }
         });
+        botonregresar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Inicio.this, Listausu.class);
 
+                startActivity(intent);
+                finish();
+
+            }
+        });
 
     }
 
@@ -88,6 +93,9 @@ public class Inicio extends AppCompatActivity  {
                 if (response.equalsIgnoreCase("datos incetados")) ;
                 Toast.makeText(Inicio.this, "datos insertados", Toast.LENGTH_SHORT).show();
                 progressDialog.dismiss();
+                Intent intent = new Intent(Inicio.this, Listausu.class);
+
+                startActivity(intent);
                 finish();
             }
 
@@ -108,6 +116,7 @@ public class Inicio extends AppCompatActivity  {
                 parametros.put("celular",celular.getText().toString());
                 parametros.put("idpuesto",idpuesto);
                 parametros.put("estado",estado);
+
 
                 return parametros;
             }
