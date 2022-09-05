@@ -9,9 +9,9 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@drawable/img"
+        android:icon="@drawable/img_1"
         android:label="Garaje Bolívar"
-        android:roundIcon="@drawable/img"
+        android:roundIcon="@drawable/img_1"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
@@ -38,7 +38,7 @@
         <activity
             android:name=".login"
             android:exported="true"
-            android:label="Garage"
+            android:label="Garaje Bolívar"
             android:theme="@style/Theme.MyApplication.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
