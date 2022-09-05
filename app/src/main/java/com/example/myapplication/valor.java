@@ -19,7 +19,6 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.JsonRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
@@ -27,6 +26,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -34,13 +34,17 @@ import java.util.Map;
 
 public class valor extends AppCompatActivity {
     String estado,idpuesto,puestotxt;
-    TextView txt_puesto;
-    EditText placa,nombre,he,celular,he1;
+    TextView txt_puesto,transcurso;
+    EditText placa,nombre,he,valor_he,he1;
     Button boton_tiket,boton_lista,botonfinalizarpago,botonregresar;
     ProgressDialog progressDialog;
+    String currentDateandTime;
     RequestQueue rq;
     ListView lista;
     String url ;
+    private final int SECONDS_IN_ONE_DAY = 86_400;
+    private final int SECONDS_IN_ONE_HOUR = 3_600;
+    private final int SECONDS_IN_ONE_MINUTE = 60;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.valor);
@@ -54,11 +58,15 @@ public class valor extends AppCompatActivity {
         he1 = (EditText) findViewById(R.id.valor_horasalida);
         botonregresar=(Button)findViewById(R.id.btn_regresar);
         txt_puesto =(TextView)  findViewById(R.id.txt_estado);
+       transcurso=(TextView)  findViewById(R.id.transcurso);
         botonfinalizarpago=(Button)findViewById(R.id.btn_pagar);
+        valor_he=(EditText)findViewById(R.id.valor_he);
         txt_puesto.setText(puestotxt);
-        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
-        String currentDateandTime = sdf.format(new Date());
-        he1.setText(currentDateandTime);
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+        currentDateandTime = sdf.format(new Date());
+        SimpleDateFormat sdf1 = new SimpleDateFormat("HH:mm");
+      String  currentDateandTime1 = sdf1.format(new Date());
+        he1.setText(currentDateandTime1);
         placa.setKeyListener(null);
         placa.setClickable(true);
         nombre.setKeyListener(null);
@@ -122,6 +130,7 @@ public class valor extends AppCompatActivity {
                         placa.setText(jsonObject.getString("placa"));
                         nombre.setText(jsonObject.getString("nombre"));
                         he.setText(jsonObject.getString("hora_ingreso"));
+                        calculate(jsonObject.getString("hora_ingreso"),currentDateandTime);
 
                     } catch (JSONException e) {
                         Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
@@ -139,6 +148,7 @@ public class valor extends AppCompatActivity {
         //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         rq = Volley.newRequestQueue(getApplicationContext());
         rq.add(jsonArrayrequest);
+
 
     }
 
@@ -181,7 +191,50 @@ public class valor extends AppCompatActivity {
         requestQueue.add(request);
     }
 
+    private void calculate(String hora1, String hora2) {
+        try {
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm");
+            Date startDate = simpleDateFormat.parse(hora1);
+            Date endDate = simpleDateFormat.parse(hora2);
 
+            long start = startDate.getTime() / 1000;
+            long end = endDate.getTime() / 1000;
+
+            if(end < start)
+                end += SECONDS_IN_ONE_DAY;
+
+            int difference = (int) (end - start);
+
+            int days = difference / SECONDS_IN_ONE_DAY;
+            difference %= SECONDS_IN_ONE_DAY;
+            int hours = difference / SECONDS_IN_ONE_HOUR;
+            difference %= SECONDS_IN_ONE_HOUR;
+            int minutes = difference / SECONDS_IN_ONE_MINUTE;
+            difference %= SECONDS_IN_ONE_MINUTE;
+
+           transcurso.setText("Tiempo transcurrido : "+"horas: " + hours + ", minutos: " + minutes);
+         if(hours>0 || minutes>0){
+             double hora= hours*60*0.01;
+             double minutos= minutes*0.01;
+             double total=hora+minutos;
+             String total_String = String.valueOf(total);
+             valor_he.setText(total_String);
+         }else if(hours==0 || minutes>0){
+             double minutos= minutes*0.01;
+             double total=minutos;
+             String total_String = String.valueOf(total);
+             valor_he.setText(total_String);
+         }else if(hours>0 || minutes==0) {
+             double hora= hours*60*0.01;
+             double total=hora;
+             String total_String = String.valueOf(total);
+             valor_he.setText(total_String);
+         }
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+    }
 
 
 }

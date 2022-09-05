@@ -32,7 +32,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Inicio extends AppCompatActivity  {
-    String estado,idpuesto,puestotxt;
+    String estado,idpuesto,puestotxt,currentdate;
     TextView txt_puesto;
     EditText placa,nombre,he,celular,puesto;
     Button boton_tiket,boton_lista,botonregistro,botonregresar;
@@ -54,6 +54,8 @@ public class Inicio extends AppCompatActivity  {
         txt_puesto =(TextView)  findViewById(R.id.txt_estado);
         botonregistro=(Button)findViewById(R.id.btn_tiket1);
         txt_puesto.setText(puestotxt);
+        SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd");
+        currentdate = sdf1.format(new Date());
         SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
         String currentDateandTime = sdf.format(new Date());
         he.setText(currentDateandTime);
@@ -116,6 +118,7 @@ public class Inicio extends AppCompatActivity  {
                 parametros.put("celular",celular.getText().toString());
                 parametros.put("idpuesto",idpuesto);
                 parametros.put("estado",estado);
+                parametros.put("currentdate",currentdate);
 
 
                 return parametros;
