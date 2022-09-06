@@ -30,6 +30,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 public class valor extends AppCompatActivity {
@@ -214,21 +215,30 @@ public class valor extends AppCompatActivity {
 
            transcurso.setText("Tiempo transcurrido : "+"horas: " + hours + ", minutos: " + minutes);
          if(hours>0 || minutes>0){
-             double hora= hours*60*0.01;
-             double minutos= minutes*0.01;
-             double total=hora+minutos;
-             String total_String = String.valueOf(total);
-             valor_he.setText(total_String);
+             double hora;
+             double minutos;
+             double total;
+             hora= hours*(60*(0.01));
+             minutos= minutes*0.01;
+             total=hora+minutos;
+
+             valor_he.setText("$"+String.format(Locale.ROOT, "%.2f", total ));
          }else if(hours==0 || minutes>0){
-             double minutos= minutes*0.01;
-             double total=minutos;
-             String total_String = String.valueOf(total);
-             valor_he.setText(total_String);
+
+             double minutos;
+             double total;
+             minutos= minutes*0.01;
+             total=minutos;
+
+
+             valor_he.setText("$"+String.format(Locale.ROOT, "%.2f", total ));
          }else if(hours>0 || minutes==0) {
-             double hora= hours*60*0.01;
-             double total=hora;
-             String total_String = String.valueOf(total);
-             valor_he.setText(total_String);
+             double hora;
+             double total;
+             hora= hours*(60*(0.01));
+             total=hora;
+
+             valor_he.setText("$"+String.format(Locale.ROOT, "%.2f", total ));
          }
 
         } catch (ParseException e) {
