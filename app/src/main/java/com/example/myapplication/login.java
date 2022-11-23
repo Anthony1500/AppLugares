@@ -2,6 +2,7 @@ package com.example.myapplication;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,6 +11,7 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -27,17 +29,31 @@ public class login extends AppCompatActivity {
     Button  boton_recuperar,boton_registro;
     EditText u_correo ,u_con;
     String s_correo,s_con;
-    String url="https://apps.indoamerica.edu.ec/catastros/apptaxi/usuarios.php";
+    Button botonregistro;
+    String url="https://cosecha.tech/applugares_api_service/login.php";
 
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
+        botonregistro=findViewById(R.id.btnregistro);
         u_correo = findViewById(R.id.email);
         u_con = findViewById(R.id.contraseña);
 
+        ConstraintLayout ConstraintLayout = findViewById(R.id.mainlogin);
+        AnimationDrawable animationDrawable = (AnimationDrawable) ConstraintLayout.getBackground();
+        animationDrawable.setEnterFadeDuration(2500);
+        animationDrawable.setExitFadeDuration(5000);
+        animationDrawable.start();
 
+        botonregistro.setOnClickListener(new View.OnClickListener() {//Método para darle función al botón
 
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(login.this,registro.class);//Envió hacia otro Activity
+                startActivity(intent);
+            }
+        });
 
 
     }
@@ -62,7 +78,7 @@ if(u_correo.getText().toString().equals("")){
                 u_con.setText("");
                 Bundle enviar= new Bundle();
                 enviar.putString("datos",  s_correo);
-                Intent intent = new Intent(login.this, Listausu.class);
+                Intent intent = new Intent(login.this, pantalla_botones.class);
                 intent.putExtras(enviar);
                 startActivity(intent);
 
@@ -83,7 +99,7 @@ if(u_correo.getText().toString().equals("")){
         protected Map<String, String> getParams() throws AuthFailureError {
 
             Map<String,String> params = new HashMap<>();
-            params.put("email",s_correo);
+            params.put("user",s_correo);
             params.put("password",s_con);
             return params;
         }

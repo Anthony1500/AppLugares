@@ -20,4 +20,9 @@
         android:name="com.example.myapplication.MainActivity"
         android:label="activity_main"
         tools:layout="@layout/activity_main" />
+    <activity
+        android:id="@+id/registro"
+        android:name="com.example.myapplication.registro"
+        android:label="registro"
+        tools:layout="@layout/registro" />
 </navigation>

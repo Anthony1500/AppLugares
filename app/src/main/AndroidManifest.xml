@@ -10,7 +10,7 @@
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@drawable/img_1"
-        android:label="Garaje Bolívar"
+        android:label="App Lugares"
         android:roundIcon="@drawable/img_1"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication"
@@ -36,9 +36,17 @@
             android:name=".MainActivity"
             android:exported="false" />
         <activity
+            android:name=".pantalla_botones"
+            android:exported="true"
+            />
+        <activity
+            android:name=".registro"
+            android:exported="true"
+            android:theme="@style/Theme.MyApplication.NoActionBar" />
+        <activity
             android:name=".login"
             android:exported="true"
-            android:label="Garaje Bolívar"
+            android:label="App Lugares"
             android:theme="@style/Theme.MyApplication.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

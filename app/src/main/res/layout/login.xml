@@ -4,46 +4,72 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/font"
-    tools:context=".login">
+    android:background="@drawable/gradient_list"
+    tools:context=".login"
+    android:id="@+id/mainlogin">
 
 
     <!--Botón de recuperación de credenciales -->
-
 
     <Button
         android:id="@+id/bt_login"
         android:layout_width="271dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="436dp"
+        android:layout_marginTop="196dp"
+        android:backgroundTint="@color/design_default_color_error"
         android:contextClickable="false"
         android:gravity="center"
         android:isScrollContainer="false"
-        android:backgroundTint="@color/l"
+
         android:onClick="login"
 
         android:text="Iniciar Sesion "
-
         android:textAlignment="center"
         android:textAllCaps="false"
         android:translationY="-67dp"
         app:cornerRadius="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
+
+    <Button
+        android:id="@+id/btnregistro"
+        android:layout_width="271dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="4dp"
+        android:backgroundTint="@color/cardview_light_background"
+        android:contextClickable="false"
+        android:gravity="center"
+        android:isScrollContainer="false"
+
+        android:onClick="login"
+
+        android:text="Registrarse"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:translationY="-67dp"
+        app:cornerRadius="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.514"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bt_login" />
 
     <ImageView
         android:id="@+id/fotousuario"
-        android:layout_width="363dp"
-        android:layout_height="174dp"
+        android:layout_width="238dp"
+        android:layout_height="161dp"
 
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="128dp"
+        app:layout_constraintBottom_toTopOf="@+id/email"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/axda" />
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/logo" />
 
     <EditText
         android:id="@+id/email"
@@ -52,7 +78,7 @@
 
         android:background="@color/w"
         android:ems="10"
-        android:hint="Correo Electronico"
+        android:hint="Usuario"
         android:inputType="textEmailAddress"
         android:padding="15dp"
         android:translationY="5dp"
@@ -60,8 +86,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/fotousuario"
-        app:layout_constraintVertical_bias="0.293" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.449" />
 
     <com.google.android.material.textfield.TextInputLayout
 
@@ -69,7 +95,7 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:background="@color/white"
-        android:translationY="5dp"
+        android:translationY="100dp"
         app:hintEnabled="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -100,12 +126,14 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="168dp"
-        android:text="Garaje bolívar"
+        android:layout_marginTop="84dp"
+        android:background="@color/cardview_shadow_end_color"
+        android:text="Ingreso al Sistema"
         android:textAllCaps="true"
-        android:textSize="16sp"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/fotousuario"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.557"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

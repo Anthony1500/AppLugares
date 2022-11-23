@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/imagen"
+            android:layout_width="413dp"
+            android:layout_height="240dp"
+            android:background="@drawable/cabecera"
+            android:contentDescription="@android:string/unknownName"
+            android:text="   "
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/bt_login3"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="28dp"
+            android:backgroundTint="@color/design_default_color_error"
+            android:contextClickable="false"
+            android:gravity="center"
+
+            android:isScrollContainer="false"
+
+            android:onClick="login"
+            android:text="Parques"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            app:cornerRadius="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imagen" />
+
+        <Button
+            android:id="@+id/bt_login4"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="12dp"
+            android:backgroundTint="@color/design_default_color_error"
+            android:contextClickable="false"
+
+            android:gravity="center"
+
+            android:isScrollContainer="false"
+            android:onClick="login"
+            android:text="Mercados"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            app:cornerRadius="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.494"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bt_login3" />
+
+        <Button
+            android:id="@+id/bt_login5"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="12dp"
+            android:backgroundTint="@color/design_default_color_error"
+            android:contextClickable="false"
+
+            android:gravity="center"
+
+            android:isScrollContainer="false"
+            android:onClick="login"
+            android:text="Restaurantes "
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            app:cornerRadius="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.494"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bt_login4" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
