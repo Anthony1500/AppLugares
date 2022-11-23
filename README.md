@@ -1,4 +1,4 @@
 # Garaje App
-Aplicación móvil para determinar el costo mediante el control del tiempo en un garaje.
+Aplicación móvil para determinar los lugares de Ambato.
 
-![alt text](/app/src/main/res/drawable/axda.png "Garaje App")
+![alt text](/app/src/main/res/drawable/logo.png "App Lugares")
