@@ -44,8 +44,8 @@ public class Listausu extends AppCompatActivity implements AdapterView.OnItemCli
     String s = "";
     RequestQueue rq;
     ListView lista;
-    String numeropuesto,estado,idpuesto;
-    String url = "https://apps.indoamerica.edu.ec/catastros/apptaxi/selectpuesto.php";
+    String descripcion,nombre,id_parques;
+    String url = "https://cosecha.tech/applugares_api_service/selectparques.php";
 
     Timer timer = new Timer();
     private ListausuViewModel mViewModel;
@@ -80,12 +80,12 @@ public class Listausu extends AppCompatActivity implements AdapterView.OnItemCli
                     for (int i = 0; i < response.length(); i++) {
                         try {
                             jsonObject = response.getJSONObject(i);
-                            idpuesto = jsonObject.getString("idpuesto");
-                            numeropuesto = jsonObject.getString("numeropuesto");
-                            estado = jsonObject.getString("estado");
+                            id_parques = jsonObject.getString("id_parques");
+                            nombre = jsonObject.getString("nombre");
+                            descripcion = jsonObject.getString("descripcion");
 
                             if (this != null) {
-                                milista.add(new listausuarios("Puesto " + numeropuesto, estado, idpuesto));
+                                milista.add(new listausuarios(nombre, id_parques));
                                 miadapter = new listausuariosadapter(Listausu.this, R.layout.lista_items, milista);
                                 lista.setAdapter(miadapter);
 
@@ -126,52 +126,27 @@ public class Listausu extends AppCompatActivity implements AdapterView.OnItemCli
 
 
     public void onItemClick(AdapterView<?> Adapterview, View view, int position, long id) {
-        String estado =milista.get(position).getEstado();
-        if(milista.get(position).getEstado().equals("Disponible")){
+
+
             AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);//Alert dialog cerrar sesión
-            alertDialog.setTitle(milista.get(position).getNumeropuesto());
-            alertDialog.setMessage("Está seguro que desea ocupar este puesto seleccionado?");
+            alertDialog.setTitle(milista.get(position).getNombre());
+            alertDialog.setMessage("Está seguro que desea seleccionar este parque?");
             alertDialog.setIcon( R.drawable.asignar);
             alertDialog.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog,int which) {
 
 
-                    Intent intent = new Intent(Listausu.this, Inicio.class);
-                    intent.putExtra("puesto", milista.get(position).getNumeropuesto());
-                    intent.putExtra("idpuesto", milista.get(position).getIdpuesto());
+                   // Intent intent = new Intent(Listausu.this, Inicio.class);
+                  //  intent.putExtra("nombre", milista.get(position).getNombre());
+                   // intent.putExtra("id_parques", milista.get(position).getId_parques());
 
-                    startActivity(intent);
-                    finish();
-                    Toast.makeText(Listausu.this,"Pantalla de asignación del puesto." ,Toast.LENGTH_SHORT).show();
+                  //  startActivity(intent);
+                 //   finish();
+                    Toast.makeText(Listausu.this,"Pantalla de selección del parque." ,Toast.LENGTH_SHORT).show();
                 }
             });
             alertDialog.show();
-        }else{
-            AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);//Alert dialog cerrar sesión
-            alertDialog.setTitle(milista.get(position).getNumeropuesto());
-            alertDialog.setMessage("Está seguro que desea finalizar su servicio?");
-            alertDialog.setIcon( R.drawable.terminar);
-            alertDialog.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog,int which) {
 
-
-                    Intent intent = new Intent(Listausu.this, valor.class);
-                    intent.putExtra("puesto", milista.get(position).getNumeropuesto());
-                    intent.putExtra("idpuesto", milista.get(position).getIdpuesto());
-
-                    startActivity(intent);
-                    finish();
-                    Toast.makeText(Listausu.this,"Pantalla de asignación del puesto." ,Toast.LENGTH_SHORT).show();
-                }
-            });
-            alertDialog.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog,int which) {
-                    alertDialog.setCancelable(true);
-
-                      }
-            });
-            alertDialog.show();
-        }
 
 
 

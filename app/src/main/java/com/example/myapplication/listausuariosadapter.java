@@ -37,11 +37,11 @@ public class listausuariosadapter extends ArrayAdapter<listausuarios> {
 
 
         TextView puesto =view.findViewById(R.id.puesto);
-        puesto.setText(listausu.getNumeropuesto());
+        puesto.setText(listausu.getNombre());
         TextView estado =view.findViewById(R.id.estado);
-        estado.setText(listausu.getEstado());
+        estado.setText("");
         TextView idpuesto =view.findViewById(R.id.idpuesto);
-        idpuesto.setText(listausu.getIdpuesto());
+        idpuesto.setText(listausu.getId_parques());
         notifyDataSetChanged();
         return view;
     }

@@ -1,37 +1,27 @@
 package com.example.myapplication;
 
 public class listausuarios {
-    String numeropuesto,estado,idpuesto;
+    String nombre,id_parques;;
 
 
-
-    public listausuarios(String numeropuesto, String estado, String idpuesto) {
-        this.numeropuesto = numeropuesto;
-        this.estado = estado;
-        this.idpuesto=idpuesto;
+    public listausuarios(String nombre, String id_parques) {
+        this.nombre = nombre;
+        this.id_parques = id_parques;
     }
 
-    public String getIdpuesto() {
-        return idpuesto;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setIdpuesto(String idpuesto) {
-        this.idpuesto = idpuesto;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public String getNumeropuesto() {
-        return numeropuesto;
+    public String getId_parques() {
+        return id_parques;
     }
 
-    public void setNumeropuesto(String numeropuesto) {
-        this.numeropuesto = numeropuesto;
-    }
-
-    public String getEstado() {
-        return estado;
-    }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
+    public void setId_parques(String id_parques) {
+        this.id_parques = id_parques;
     }
 }
