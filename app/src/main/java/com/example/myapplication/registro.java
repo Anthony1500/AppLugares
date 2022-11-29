@@ -1,5 +1,7 @@
 package com.example.myapplication;
 
+import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
+
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -42,6 +44,8 @@ Button atras,guardar,cancelar;
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(registro.this,login.class);//Envió hacia otro Activity
+                intent.addFlags(FLAG_ACTIVITY_NEW_TASK);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
             }
         });
@@ -63,6 +67,25 @@ Button atras,guardar,cancelar;
 
 
         });
+        cancelar.setOnClickListener(new View.OnClickListener() {//Método para darle función al botón
+
+            @Override
+            public void onClick(View v) {
+
+                progressDialog = new ProgressDialog(registro.this);
+                progressDialog.setMessage("Por favor espera...");//Método del Progress Dialog
+                progressDialog.setCancelable(false);
+                progressDialog.show();
+                Intent intent = new Intent(registro.this,login.class);//Envió hacia otro Activity
+                intent.addFlags(FLAG_ACTIVITY_NEW_TASK);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+                progressDialog.dismiss();
+
+            }
+
+
+        });
 
     }
 
@@ -75,6 +98,9 @@ Button atras,guardar,cancelar;
     public void onResponse(JSONObject response) {
         progressDialog.dismiss();
         Toast.makeText(this, "Se guardo Correctamente", Toast.LENGTH_SHORT).show();
+        tcontrasenia.setText("");
+        tnombre.setText("");
+        tcorreo.setText("");
     }
 
 
@@ -83,5 +109,6 @@ Button atras,guardar,cancelar;
         String url="https://cosecha.tech/applugares_api_service/registro.php?nombre="+tnombre.getText().toString()+"&contrasenia="+tcontrasenia.getText().toString()+"&correo="+tcorreo.getText().toString();
         jrq= new JsonObjectRequest(Request.Method.GET,url,null,this,this);
         rq.add(jrq);//Envió y recepción de datos
+
     }
 }
