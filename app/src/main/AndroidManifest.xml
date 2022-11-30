@@ -20,7 +20,16 @@
             android:exported="false" />
         <activity
             android:name=".Listausu"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.MyApplication.NoActionBar"/>
+        <activity
+            android:name=".Listausu2"
+            android:exported="false"
+            android:theme="@style/Theme.MyApplication.NoActionBar"/>
+        <activity
+            android:name=".Listausu3"
+            android:exported="false"
+            android:theme="@style/Theme.MyApplication.NoActionBar"/>
         <activity
             android:name=".tiket"
             android:exported="false" />
