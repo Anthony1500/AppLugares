@@ -134,9 +134,9 @@ Button atras;
                 public void onClick(DialogInterface dialog,int which) {
 
 
-                   // Intent intent = new Intent(Listausu.this, Inicio.class);
-                  //  intent.putExtra("nombre", milista.get(position).getNombre());
-                   // intent.putExtra("id_parques", milista.get(position).getId_parques());
+                    Intent intent = new Intent(Listausu3.this, mostrardetalle.class);
+                  intent.putExtra("nombre", milista.get(position).getNombre());
+                   intent.putExtra("id_restaurante", milista.get(position).id_restaurante);
 
                   //  startActivity(intent);
                  //   finish();

@@ -53,6 +53,10 @@
             android:exported="true"
             android:theme="@style/Theme.MyApplication.NoActionBar" />
         <activity
+            android:name=".mostrardetalle"
+            android:exported="true"
+            android:theme="@style/Theme.MyApplication.NoActionBar" />
+        <activity
             android:name=".login"
             android:exported="true"
             android:label="App Lugares"
