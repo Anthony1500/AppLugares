@@ -2,8 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
     android:layout_height="match_parent"
-    android:layout_width="wrap_content">
+    tools:layout_editor_absoluteX="1dp"
+    tools:layout_editor_absoluteY="61dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -25,7 +27,7 @@
             android:layout_width="320dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="72dp"
             android:backgroundTint="@color/design_default_color_error"
             android:contextClickable="false"
             android:gravity="center"
@@ -38,6 +40,7 @@
             android:textAllCaps="true"
             app:cornerRadius="20dp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.494"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imagen" />
 
@@ -46,7 +49,7 @@
             android:layout_width="320dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="4dp"
             android:backgroundTint="@color/design_default_color_error"
             android:contextClickable="false"
 
@@ -59,7 +62,7 @@
             android:textAllCaps="true"
             app:cornerRadius="20dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.494"
+            app:layout_constraintHorizontal_bias="0.505"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btparque" />
 
@@ -68,7 +71,7 @@
             android:layout_width="320dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="4dp"
             android:backgroundTint="@color/design_default_color_error"
             android:contextClickable="false"
 
@@ -81,7 +84,51 @@
             android:textAllCaps="true"
             app:cornerRadius="20dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.494"
+            app:layout_constraintHorizontal_bias="0.505"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btmercado" />
+
+        <Button
+            android:id="@+id/culturaarte"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="52dp"
+            android:backgroundTint="@color/design_default_color_error"
+            android:contextClickable="false"
+
+            android:gravity="center"
+
+            android:isScrollContainer="false"
+            android:onClick="login"
+            android:text="Cultura y Arte"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            app:cornerRadius="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.505"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btmercado" />
+
+        <Button
+            android:id="@+id/historia"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="100dp"
+            android:backgroundTint="@color/design_default_color_error"
+            android:contextClickable="false"
+
+            android:gravity="center"
+
+            android:isScrollContainer="false"
+            android:onClick="login"
+            android:text="Hoteles"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            app:cornerRadius="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.505"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btmercado" />
     </androidx.constraintlayout.widget.ConstraintLayout>

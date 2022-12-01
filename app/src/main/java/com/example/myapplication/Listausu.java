@@ -142,12 +142,12 @@ public class Listausu extends AppCompatActivity implements AdapterView.OnItemCli
 
 
                     Intent intent = new Intent(Listausu.this, mostrardetalle.class);
-                   intent.putExtra("nombre", milista.get(position).getNombre());
-                   intent.putExtra("id_parques", milista.get(position).getId_parques());
+                  // intent.putExtra("nombre", milista.get(position).getNombre());
+                   intent.putExtra("idparques", milista.get(position).getId_parques());
 
                   startActivity(intent);
                  finish();
-                    Toast.makeText(Listausu.this,"Pantalla de selección del parque." ,Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Listausu.this,"Pantalla de selección de Item." ,Toast.LENGTH_SHORT).show();
                 }
             });
             alertDialog.show();

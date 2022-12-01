@@ -134,13 +134,13 @@ Button atras;
                 public void onClick(DialogInterface dialog,int which) {
 
 
-                    Intent intent = new Intent(Listausu3.this, mostrardetalle.class);
+                    Intent intent = new Intent(Listausu3.this, mostrardetalle3.class);
                   intent.putExtra("nombre", milista.get(position).getNombre());
-                   intent.putExtra("id_restaurante", milista.get(position).id_restaurante);
+                   intent.putExtra("idrestaurante", milista.get(position).getId_restaurante());
 
-                  //  startActivity(intent);
-                 //   finish();
-                    Toast.makeText(Listausu3.this,"Pantalla de selección del Restaurante." ,Toast.LENGTH_SHORT).show();
+                  startActivity(intent);
+                 finish();
+                    Toast.makeText(Listausu3.this,"Pantalla de selección de Item." ,Toast.LENGTH_SHORT).show();
                 }
             });
             alertDialog.show();

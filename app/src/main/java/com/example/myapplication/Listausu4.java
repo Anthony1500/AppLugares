@@ -29,50 +29,44 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
 
-public class Listausu2 extends AppCompatActivity implements AdapterView.OnItemClickListener{
+public class Listausu4 extends AppCompatActivity implements AdapterView.OnItemClickListener{
     ListAdapter miadapter;
-    private List<listausuarios2> milista = new ArrayList<>();
+    private List<listausuarios4> milista = new ArrayList<>();
     String s = "";
     RequestQueue rq;
     ListView lista;
-    String descripcion,nombre,id_mercado;
+    String descripcion,nombre,id_cultura;
 Button atras;
 
-    String url = "https://cosecha.tech/applugares_api_service/selectmercado.php";
+    String url = "https://cosecha.tech/applugares_api_service/selectculturaarte.php";
 
     Timer timer = new Timer();
     private ListausuViewModel mViewModel;
 
     private View bindinga;
-    public static Listausu2 newInstance() {
-        return new Listausu2();
+    public static Listausu4 newInstance() {
+        return new Listausu4();
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_lista2);
+        setContentView(R.layout.activity_lista4);
         lista = (ListView) findViewById(R.id.lista_usuarios);
         lista.setOnItemClickListener(this);
         List<String> names = new ArrayList<String>();
-
-        atras=findViewById(R.id.btnatras2);
+        atras=findViewById(R.id.btatras3);
         atras.setOnClickListener(new View.OnClickListener() {//Método para darle función al botón
 
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Listausu2.this,pantalla_botones.class);//Envió hacia otro Activity
+                Intent intent = new Intent(Listausu4.this,pantalla_botones.class);//Envió hacia otro Activity
                 intent.addFlags(FLAG_ACTIVITY_NEW_TASK);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
             }
         });
         //******************************************************************************************
-
-
-
-
-        //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
             JsonArrayRequest jsonArrayrequest = new JsonArrayRequest(url, new Response.Listener<JSONArray>() {
                 @Override
@@ -84,13 +78,13 @@ Button atras;
                     for (int i = 0; i < response.length(); i++) {
                         try {
                             jsonObject = response.getJSONObject(i);
-                            id_mercado = jsonObject.getString("id_mercado");
+                            id_cultura = jsonObject.getString("id_cultura");
                             nombre = jsonObject.getString("nombre");
                             descripcion = jsonObject.getString("descripcion");
 
                             if (this != null) {
-                                milista.add(new listausuarios2(nombre,id_mercado));
-                                miadapter = new listausuariosadapte2(Listausu2.this, R.layout.lista_items, milista);
+                                milista.add(new listausuarios4(nombre, id_cultura));
+                                miadapter = new listausuariosadapter4(Listausu4.this, R.layout.lista_items, milista);
                                 lista.setAdapter(miadapter);
 
                             }
@@ -134,19 +128,19 @@ Button atras;
 
             AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);//Alert dialog cerrar sesión
             alertDialog.setTitle(milista.get(position).getNombre());
-            alertDialog.setMessage("Está seguro que desea seleccionar este mercado?");
-            alertDialog.setIcon( R.drawable.mercado);
+            alertDialog.setMessage("Está seguro que desea seleccionar este Item?");
+            alertDialog.setIcon( R.drawable.cultura);
             alertDialog.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog,int which) {
 
 
-                   Intent intent = new Intent(Listausu2.this, mostrardetalle2.class);
-                   intent.putExtra("nombre", milista.get(position).getNombre());
-                   intent.putExtra("idmercado", milista.get(position).getId_mercado());
-                    Toast.makeText(Listausu2.this,milista.get(position).getId_mercado() ,Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(Listausu4.this, mostrardetalle4.class);
+                  intent.putExtra("nombre", milista.get(position).getNombre());
+                   intent.putExtra("idculturaarte", milista.get(position).getId_cultura());
+
                   startActivity(intent);
                  finish();
-                    Toast.makeText(Listausu2.this,"Pantalla de selección de Item." ,Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Listausu4.this,"Pantalla de selección de Item." ,Toast.LENGTH_SHORT).show();
                 }
             });
             alertDialog.show();

@@ -24,22 +24,22 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class mostrardetalle3 extends AppCompatActivity {
+public class mostrardetalle5 extends AppCompatActivity {
     Button atras,mapa;
     RequestQueue rq;
     private GoogleMap mMap;
-    String idrestaurante;
+    String idhoteles;
     String url;
-    String ubicacion,nombre,id_restaurante;
+    String ubicacion,nombre,id_hoteles;
     TextView texto,titulo;
     ImageView imagen;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mostrardetalle2);
-        idrestaurante = getIntent().getStringExtra("idrestaurante");
-        url = "https://cosecha.tech/applugares_api_service/selectinforestaurante.php?idrestaurante="+idrestaurante;
-        rq = Volley.newRequestQueue(mostrardetalle3.this);
+        idhoteles = getIntent().getStringExtra("idhoteles");
+        url = "https://cosecha.tech/applugares_api_service/selectinfohoteles.php?idhoteles="+idhoteles;
+        rq = Volley.newRequestQueue(mostrardetalle5.this);
         atras=findViewById(R.id.btnatras3);
         mapa=findViewById(R.id.mapa);
         texto=findViewById(R.id.texto);
@@ -50,7 +50,7 @@ public class mostrardetalle3 extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(mostrardetalle3.this,Listausu3.class);//Envió hacia otro Activity
+                Intent intent = new Intent(mostrardetalle5.this,Listausu5.class);//Envió hacia otro Activity
                 intent.addFlags(FLAG_ACTIVITY_NEW_TASK);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
@@ -67,25 +67,25 @@ public class mostrardetalle3 extends AppCompatActivity {
                     try {
                         jsonObject = response.getJSONObject(i);
 
-                        if( jsonObject.getString("nombre").equals("Il Vulcano Pizzeria")) {
-                            imagen.setImageResource(R.drawable.vulcanopizzeria);
-                            id_restaurante = jsonObject.getString("id_restaurante");
+                        if( jsonObject.getString("nombre").equals("Hotel Emperador")) {
+                            imagen.setImageResource(R.drawable.hotelemperador);
+                            id_hoteles = jsonObject.getString("id_hoteles");
                             nombre = jsonObject.getString("nombre");
                             titulo.setText(jsonObject.getString("nombre"));
                             texto.setText(jsonObject.getString("descripcion"));
                             ubicacion= jsonObject.getString("ubicacion");
                         }
-                        if( jsonObject.getString("nombre").equals("El Garage De Chelmo")) {
-                            imagen.setImageResource(R.drawable.garagechelmo);
-                            id_restaurante = jsonObject.getString("id_restaurante");
+                        if( jsonObject.getString("nombre").equals("Hotel Ambato")) {
+                            imagen.setImageResource(R.drawable.hotelambato);
+                            id_hoteles = jsonObject.getString("id_hoteles");
                             nombre = jsonObject.getString("nombre");
                             titulo.setText(jsonObject.getString("nombre"));
                             texto.setText(jsonObject.getString("descripcion"));
                             ubicacion= jsonObject.getString("ubicacion");
                         }
-                        if( jsonObject.getString("nombre").equals("Tierrita Linda Cafeteria")) {
-                            imagen.setImageResource(R.drawable.tierritalinda);
-                            id_restaurante = jsonObject.getString("id_restaurante");
+                        if( jsonObject.getString("nombre").equals("Hotel Portugal")) {
+                            imagen.setImageResource(R.drawable.hotelportugal);
+                            id_hoteles = jsonObject.getString("id_hoteles");
                             nombre = jsonObject.getString("nombre");
                             titulo.setText(jsonObject.getString("nombre"));
                             texto.setText(jsonObject.getString("descripcion"));
@@ -93,18 +93,18 @@ public class mostrardetalle3 extends AppCompatActivity {
                         }
 
                     } catch (JSONException e) {
-                        Toast.makeText(mostrardetalle3.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(mostrardetalle5.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 }
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError errore) {
-                Toast.makeText(mostrardetalle3.this, "Error de Conexión", Toast.LENGTH_SHORT).show();
+                Toast.makeText(mostrardetalle5.this, "Error de Conexión", Toast.LENGTH_SHORT).show();
             }
         }
         );
-        rq= Volley.newRequestQueue(mostrardetalle3.this);
+        rq= Volley.newRequestQueue(mostrardetalle5.this);
         rq.add(jsonArrayRequest);
         //****************************************************************************************
 
@@ -112,7 +112,7 @@ public class mostrardetalle3 extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(android.content.Intent.ACTION_VIEW, Uri.parse(ubicacion)); //o la direccion/consulta que quiera "http://maps.google.com/maps?q="+ myLatitude  +"," + myLongitude +"("+ labLocation + ")&iwloc=A&hl=es"
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(ubicacion)); //o la direccion/consulta que quiera "http://maps.google.com/maps?q="+ myLatitude  +"," + myLongitude +"("+ labLocation + ")&iwloc=A&hl=es"
                 intent.setClassName("com.google.android.apps.maps", "com.google.android.maps.MapsActivity");
                 startActivity(intent);
             }
