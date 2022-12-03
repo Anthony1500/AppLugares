@@ -78,7 +78,7 @@
 
         android:background="@color/w"
         android:ems="10"
-        android:hint="Usuario"
+        android:hint="Nombre"
         android:inputType="textEmailAddress"
         android:padding="15dp"
         android:translationY="5dp"
@@ -113,7 +113,7 @@
             android:background="@color/w"
             android:ems="10"
             android:enabled="true"
-            android:hint="Contraseña"
+            android:hint="Apellido"
             android:inputType="textPassword"
             android:padding="15dp"
             android:textSize="20dp"
