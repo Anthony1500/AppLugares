@@ -146,7 +146,7 @@ Button atras;
                     Toast.makeText(Listausu2.this,milista.get(position).getId_mercado() ,Toast.LENGTH_SHORT).show();
                   startActivity(intent);
                  finish();
-                    Toast.makeText(Listausu2.this,"Pantalla de selección de Item." ,Toast.LENGTH_SHORT).show();
+
                 }
             });
             alertDialog.show();

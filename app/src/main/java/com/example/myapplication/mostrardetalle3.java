@@ -92,7 +92,7 @@ public class mostrardetalle3 extends AppCompatActivity {
                             ubicacion= jsonObject.getString("ubicacion");
                         }
                         if( jsonObject.getString("nombre").equals("Gallinas de Pinllo")) {
-                            imagen.setImageResource(R.drawable.tierritalinda);
+                            imagen.setImageResource(R.drawable.pinllo);
                             id_restaurante = jsonObject.getString("id_restaurante");
                             nombre = jsonObject.getString("nombre");
                             titulo.setText(jsonObject.getString("nombre"));

@@ -140,7 +140,7 @@ Button atras;
 
                   startActivity(intent);
                  finish();
-                    Toast.makeText(Listausu5.this,"Pantalla de selección de Item." ,Toast.LENGTH_SHORT).show();
+
                 }
             });
             alertDialog.show();

@@ -147,7 +147,7 @@ public class Listausu extends AppCompatActivity implements AdapterView.OnItemCli
 
                   startActivity(intent);
                  finish();
-                    Toast.makeText(Listausu.this,"Pantalla de selección de Item." ,Toast.LENGTH_SHORT).show();
+
                 }
             });
             alertDialog.show();
