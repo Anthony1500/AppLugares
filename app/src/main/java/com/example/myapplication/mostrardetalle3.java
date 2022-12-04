@@ -91,6 +91,14 @@ public class mostrardetalle3 extends AppCompatActivity {
                             texto.setText(jsonObject.getString("descripcion"));
                             ubicacion= jsonObject.getString("ubicacion");
                         }
+                        if( jsonObject.getString("nombre").equals("Gallinas de Pinllo")) {
+                            imagen.setImageResource(R.drawable.tierritalinda);
+                            id_restaurante = jsonObject.getString("id_restaurante");
+                            nombre = jsonObject.getString("nombre");
+                            titulo.setText(jsonObject.getString("nombre"));
+                            texto.setText(jsonObject.getString("descripcion"));
+                            ubicacion= jsonObject.getString("ubicacion");
+                        }
 
                     } catch (JSONException e) {
                         Toast.makeText(mostrardetalle3.this, e.getMessage(), Toast.LENGTH_SHORT).show();

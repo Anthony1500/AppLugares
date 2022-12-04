@@ -107,6 +107,39 @@ Button atras,mapa;
                             texto.setText(jsonObject.getString("descripcion"));
                             ubicacion= jsonObject.getString("ubicacion");
                         }
+                        if( jsonObject.getString("nombre").equals("Parque Juan benigno Bela")) {
+                            imagen.setImageResource(R.drawable.parquecevallos);
+                            id_parques = jsonObject.getString("id_parques");
+                            nombre = jsonObject.getString("nombre");
+                            titulo.setText(jsonObject.getString("nombre"));
+                            texto.setText(jsonObject.getString("descripcion"));
+                            ubicacion= jsonObject.getString("ubicacion");
+                        }
+                        if( jsonObject.getString("nombre").equals("Parque de la familia")) {
+                            imagen.setImageResource(R.drawable.parquecevallos);
+                            id_parques = jsonObject.getString("id_parques");
+                            nombre = jsonObject.getString("nombre");
+                            titulo.setText(jsonObject.getString("nombre"));
+                            texto.setText(jsonObject.getString("descripcion"));
+                            ubicacion= jsonObject.getString("ubicacion");
+                        }
+                        if( jsonObject.getString("nombre").equals("Parque de Atocha")) {
+                            imagen.setImageResource(R.drawable.parquecevallos);
+                            id_parques = jsonObject.getString("id_parques");
+                            nombre = jsonObject.getString("nombre");
+                            titulo.setText(jsonObject.getString("nombre"));
+                            texto.setText(jsonObject.getString("descripcion"));
+                            ubicacion= jsonObject.getString("ubicacion");
+                        }
+                        if( jsonObject.getString("nombre").equals("Parque de las flores")) {
+                            imagen.setImageResource(R.drawable.parquecevallos);
+                            id_parques = jsonObject.getString("id_parques");
+                            nombre = jsonObject.getString("nombre");
+                            titulo.setText(jsonObject.getString("nombre"));
+                            texto.setText(jsonObject.getString("descripcion"));
+                            ubicacion= jsonObject.getString("ubicacion");
+                        }
+
                     } catch (JSONException e) {
                         Toast.makeText(mostrardetalle.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                     }

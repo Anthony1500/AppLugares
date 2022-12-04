@@ -75,6 +75,22 @@ public class mostrardetalle4 extends AppCompatActivity {
                             texto.setText(jsonObject.getString("descripcion"));
                             ubicacion= jsonObject.getString("ubicacion");
                         }
+                        if( jsonObject.getString("nombre").equals("Casa de Montalvo")) {
+                            imagen.setImageResource(R.drawable.casacultura);
+                            id_cultura = jsonObject.getString("id_cultura");
+                            nombre = jsonObject.getString("nombre");
+                            titulo.setText(jsonObject.getString("nombre"));
+                            texto.setText(jsonObject.getString("descripcion"));
+                            ubicacion= jsonObject.getString("ubicacion");
+                        }
+                        if( jsonObject.getString("nombre").equals("La Quinta de Juan León Mera")) {
+                            imagen.setImageResource(R.drawable.casacultura);
+                            id_cultura = jsonObject.getString("id_cultura");
+                            nombre = jsonObject.getString("nombre");
+                            titulo.setText(jsonObject.getString("nombre"));
+                            texto.setText(jsonObject.getString("descripcion"));
+                            ubicacion= jsonObject.getString("ubicacion");
+                        }
 
 
                     } catch (JSONException e) {
