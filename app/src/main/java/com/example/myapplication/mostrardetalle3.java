@@ -76,7 +76,7 @@ public class mostrardetalle3 extends AppCompatActivity {
                             ubicacion= jsonObject.getString("ubicacion");
                         }
                         if( jsonObject.getString("nombre").equals("El Garage De Chelmo")) {
-                            imagen.setImageResource(R.drawable.garagechelmo);
+                            imagen.setImageResource(R.drawable.chelmo);
                             id_restaurante = jsonObject.getString("id_restaurante");
                             nombre = jsonObject.getString("nombre");
                             titulo.setText(jsonObject.getString("nombre"));
@@ -84,7 +84,7 @@ public class mostrardetalle3 extends AppCompatActivity {
                             ubicacion= jsonObject.getString("ubicacion");
                         }
                         if( jsonObject.getString("nombre").equals("Tierrita Linda Cafeteria")) {
-                            imagen.setImageResource(R.drawable.tierritalinda);
+                            imagen.setImageResource(R.drawable.linda);
                             id_restaurante = jsonObject.getString("id_restaurante");
                             nombre = jsonObject.getString("nombre");
                             titulo.setText(jsonObject.getString("nombre"));

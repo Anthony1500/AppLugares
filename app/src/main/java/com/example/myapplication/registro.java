@@ -32,7 +32,7 @@ Button atras,guardar,cancelar;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.registro);
-        atras=findViewById(R.id.btnatras);
+        atras=(Button) findViewById(R.id.btnatras);
         tnombre=(EditText) findViewById(R.id.nombre);
         tcontrasenia=(EditText) findViewById(R.id.contrasenia);
         tcorreo=(EditText) findViewById(R.id.correo);
@@ -91,7 +91,7 @@ Button atras,guardar,cancelar;
 
     @Override
     public void onErrorResponse(VolleyError error) {
-
+        Toast.makeText(this, "No see guardo", Toast.LENGTH_SHORT).show();
     }
 
     @Override

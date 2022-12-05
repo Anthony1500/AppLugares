@@ -108,7 +108,7 @@ Button atras,mapa;
                             ubicacion= jsonObject.getString("ubicacion");
                         }
                         if( jsonObject.getString("nombre").equals("Parque Juan benigno Bela")) {
-                            imagen.setImageResource(R.drawable.juanbenignobela);
+                            imagen.setImageResource(R.drawable.juanbenignovela);
                             id_parques = jsonObject.getString("id_parques");
                             nombre = jsonObject.getString("nombre");
                             titulo.setText(jsonObject.getString("nombre"));
