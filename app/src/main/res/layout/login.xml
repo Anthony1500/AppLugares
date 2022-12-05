@@ -11,19 +11,37 @@
 
     <!--Botón de recuperación de credenciales -->
 
+    <EditText
+        android:id="@+id/contraseña"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+
+        android:background="@color/w"
+        android:ems="10"
+        android:hint="Apellido"
+        android:inputType="textEmailAddress"
+        android:padding="15dp"
+        android:translationY="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.536" />
+
     <Button
         android:id="@+id/bt_login"
         android:layout_width="271dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="196dp"
+        android:layout_marginTop="88dp"
         android:backgroundTint="@color/design_default_color_error"
         android:contextClickable="false"
         android:gravity="center"
+
         android:isScrollContainer="false"
 
         android:onClick="login"
-
         android:text="Iniciar Sesion "
         android:textAlignment="center"
         android:textAllCaps="false"
@@ -31,7 +49,7 @@
         app:cornerRadius="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/contraseña" />
 
     <Button
         android:id="@+id/btnregistro"
@@ -53,7 +71,6 @@
         android:translationY="-67dp"
         app:cornerRadius="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.514"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bt_login" />
 
@@ -88,39 +105,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.449" />
-
-    <com.google.android.material.textfield.TextInputLayout
-
-        android:id="@+id/textInputLayout"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:translationY="100dp"
-        app:hintEnabled="false"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.414"
-        app:passwordToggleEnabled="true">
-
-        <!--Campo Contraseña -->
-        <EditText
-            android:id="@+id/contraseña"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:background="@color/w"
-            android:ems="10"
-            android:enabled="true"
-            android:hint="Apellido"
-            android:inputType="textPassword"
-            android:padding="15dp"
-            android:textSize="20dp"
-
-            app:passwordToggleEnabled="true"
-            tools:ignore="SpeakableTextPresentCheck" />
-    </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/textView3"
